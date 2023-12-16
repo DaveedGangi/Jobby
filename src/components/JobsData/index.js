@@ -2,9 +2,10 @@ import Cookies from 'js-cookie'
 import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 
-import {Link} from 'react-router-dom'
-
 import Loader from 'react-loader-spinner'
+
+import JobCard from '../eachCardJob'
+
 import Header from '../HeaderPage'
 import './index.css'
 
@@ -60,9 +61,10 @@ class JobsDetails extends Component {
     Description: '',
     totallJobs: [],
     inputValue: '',
-    RadioInput: '',
-    EmployList: '',
+    RadioInput: 0,
+    EmployList: [],
     stateDeclared: 'initial',
+    CheckingProfileData: 'initial',
   }
 
   componentDidMount() {
@@ -74,6 +76,7 @@ class JobsDetails extends Component {
     this.setState({stateDeclared: stagesForConditionChecking.load})
 
     const {inputValue, RadioInput, EmployList} = this.state
+    console.log(EmployList)
     const jwtToken = Cookies.get('jwt_token')
     const fetchingJobs = `https://apis.ccbp.in/jobs?employment_type=${EmployList}&minimum_package=${RadioInput}&search=${inputValue}`
     const optionsJobs = {
@@ -98,15 +101,17 @@ class JobsDetails extends Component {
         rating: each.rating,
         title: each.title,
       }))
-      this.setState({totallJobs: jobsDataAll})
-      this.setState({stateDeclared: stagesForConditionChecking.success})
+      this.setState({
+        totallJobs: jobsDataAll,
+        stateDeclared: stagesForConditionChecking.success,
+      })
     } else {
       this.setState({stateDeclared: stagesForConditionChecking.failure})
     }
   }
 
   FetchingData = async () => {
-    this.setState({stateDeclared: stagesForConditionChecking.load})
+    this.setState({CheckingProfileData: stagesForConditionChecking.load})
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/profile'
     const options = {
@@ -124,10 +129,55 @@ class JobsDetails extends Component {
         name: DetailsOfUser.profile_details.name,
         Description: DetailsOfUser.profile_details.short_bio,
         imageUser: DetailsOfUser.profile_details.profile_image_url,
+        CheckingProfileData: stagesForConditionChecking.success,
       })
-      this.setState({stateDeclared: stagesForConditionChecking.success})
     } else {
-      this.setState({stateDeclared: stagesForConditionChecking.failure})
+      this.setState({CheckingProfileData: stagesForConditionChecking.failure})
+    }
+  }
+
+  successViewProfile = () => {
+    const {imageUser, name, Description} = this.state
+
+    return (
+      <div className="CardOfUser">
+        <div>
+          <img src={imageUser} alt="profile" />
+        </div>
+        <h1 className="UserName">{name}</h1>
+        <p className="Description">{Description}</p>
+      </div>
+    )
+  }
+
+  loaderViewProfile = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
+
+  failureViewProfile = () => (
+    <div>
+      <div>
+        <button type="button" onClick={this.FetchingData}>
+          Retry
+        </button>
+      </div>
+    </div>
+  )
+
+  ProfileChecking = () => {
+    const {CheckingProfileData} = this.state
+
+    switch (CheckingProfileData) {
+      case 'SUCCESS':
+        return this.successViewProfile()
+      case 'FAILURE':
+        return this.failureViewProfile()
+      case 'LOADER':
+        return this.loaderViewProfile()
+      default:
+        return null
     }
   }
 
@@ -150,31 +200,33 @@ class JobsDetails extends Component {
   }
 
   EmployLists = event => {
-    this.setState({EmployList: event.target.id})
+    const {EmployList} = this.state
+    const CheckboxNotInLists = EmployList.filter(
+      each => each === event.target.id,
+    )
+    if (CheckboxNotInLists.length === 0) {
+      this.setState(
+        prevState => ({EmployList: [...prevState.EmployList, event.target.id]}),
+        this.jobsData,
+      )
+    } else {
+      const filterData = EmployList.filter(each => each !== event.target.id)
+      this.setState(
+        {
+          EmployList: filterData,
+        },
+        this.jobsData,
+      )
+    }
   }
 
-  renderingALlData = () => {
+  renderALlData = () => {
     const {totallJobs} = this.state
 
     return (
       <div className="AllDataOfItems">
         {totallJobs.map(each => (
-          <Link
-            to={`/jobs/${each.id}`}
-            className="BgForDetailsOfJobs"
-            key={each.id}
-          >
-            <img src={each.companyLogo} alt="company logo" />
-            <h1>{each.title}</h1>
-            <p>{each.rating}</p>
-            <p>{each.location}</p>
-            <p>{each.employmentType}</p>
-            <p>{each.packagePerAnnum}</p>
-            <hr />
-            <h1>Description</h1>
-
-            <p>{each.jobDescription}</p>
-          </Link>
+          <JobCard each={each} key={each.id} />
         ))}
       </div>
     )
@@ -194,10 +246,10 @@ class JobsDetails extends Component {
   )
 
   renderSuccessView = () => {
-    const {name, imageUser, Description, totallJobs, inputValue} = this.state
+    const {totallJobs, inputValue} = this.state
 
     const DataOfAllFetching =
-      totallJobs.length > 0 ? this.renderingALlData() : this.DataNotFound()
+      totallJobs.length > 0 ? this.renderALlData() : this.DataNotFound()
 
     return (
       <div className="jobsALlBg">
@@ -205,13 +257,7 @@ class JobsDetails extends Component {
 
         <div className="flexingData">
           <div>
-            <div className="CardOfUser">
-              <div>
-                <img src={imageUser} alt="profile" />
-              </div>
-              <h1 className="UserName">{name}</h1>
-              <p className="Description">{Description}</p>
-            </div>
+            {this.ProfileChecking()}
             <div>
               <h1>Type of Employment</h1>
               <ul className="Ul">
