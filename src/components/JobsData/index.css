@@ -1,0 +1,55 @@
+.CardOfUser {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  height: 300px;
+  width: 300px;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  border-radius: 18px;
+  background-size: cover;
+}
+.detailsOfAllJobs {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.BgForDetailsOfJobs {
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 22px;
+  background-color: #121212;
+  text-decoration: none;
+  color: #ffffff;
+}
+.flexingData {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 22px;
+}
+.jobsALlBg {
+  background-color: #000000;
+  color: #ffffff;
+}
+.UserName {
+  color: #6366f1;
+}
+.Description {
+  color: #121212;
+}
+.loader-container {
+  background-color: #000000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Ul {
+  list-style-type: none;
+}
+.AllDataOfItems {
+  width: 600px;
+  margin-top: 18px;
+}

@@ -1,0 +1,41 @@
+.LogoutButton {
+  background-color: #6366f1;
+  border: 0px;
+  height: 24px;
+  width: 88px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 4px;
+  margin-right: 33px;
+  cursor: pointer;
+}
+.BgForHeader {
+  background-color: #272727;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.HomeAndJobs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 110px;
+}
+.webSiteLogo {
+  height: 33px;
+  margin-left: 33px;
+}
+.HomeAndJobsStyle {
+  font-size: 18px;
+  list-style-type: none;
+  text-decoration: none;
+  color: #ffffff;
+}
+.liWebSiteLogo {
+  list-style-type: none;
+  text-decoration: none;
+}
+.HJ {
+  text-decoration: none;
+}

@@ -1,0 +1,85 @@
+.bgLogin {
+  height: 100vh;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flexingLogin {
+  height: 300px;
+  width: 300px;
+  background-color: #272727;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+}
+.LoginButton {
+  width: 170px;
+  background-color: #6366f1;
+  border: 0px;
+  color: #ffffff;
+  height: 22px;
+  margin-top: 19px;
+  border-radius: 7px;
+  font-weight: 600;
+}
+
+.Input {
+  background-color: #202020;
+  border: 0.0009px solid #7e858e;
+  color: #ffffff;
+  outline: none;
+  height: 22px;
+  padding-left: 18px;
+  width: 170px;
+  margin-top: 7px;
+}
+
+.LogoOfWebSiteLogin {
+  margin-bottom: 22px;
+}
+.message {
+  color: #ffffff;
+}
+.webSiteLogoForLoginPage {
+  height: 44px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 767px) {
+  .flexingLogin {
+    height: 330px;
+    width: 340px;
+  }
+  .LoginButton {
+    height: 33px;
+    width: 300px;
+  }
+  .Input {
+    height: 33px;
+    width: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  .LoginButton {
+    width: 250px;
+    height: 33px;
+  }
+  .flexingLogin {
+    height: 400px;
+    width: 400px;
+  }
+  .Input {
+    height: 33px;
+    width: 250px;
+    margin-top: 5px;
+  }
+  .webSiteLogoForLoginPage {
+    height: 47px;
+  }
+}

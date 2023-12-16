@@ -1,0 +1,14 @@
+.flexingJobsSkills {
+  display: flex;
+  flex-wrap: wrap;
+}
+.eachSkill {
+  height: 100px;
+  width: 100px;
+  margin-right: 9px;
+}
+.ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}

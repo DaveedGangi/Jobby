@@ -1,0 +1,28 @@
+.FindJobsButton {
+  background-color: #6366f1;
+  border: 0px;
+  color: #ffffff;
+  height: 36px;
+  width: 88px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: 33px;
+  cursor: pointer;
+}
+
+.bgHomePage {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  background-size: cover;
+  height: 100vh;
+  color: #ffffff;
+}
+.HomePageHeading {
+  width: 470px;
+}
+.FindJobsHeading {
+  font-size: 55px;
+}
+.HeadingPosition {
+  padding-top: 77px;
+  padding-left: 33px;
+}
