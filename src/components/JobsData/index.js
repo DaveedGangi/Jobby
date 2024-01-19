@@ -236,6 +236,7 @@ class JobsDetails extends Component {
     <div className="DataNot">
       <div>
         <img
+          className="noJobs"
           src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png "
           alt="no jobs"
         />
