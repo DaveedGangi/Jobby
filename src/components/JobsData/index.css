@@ -55,10 +55,6 @@
 .AllDataOfItems {
   width: 100%;
   margin-top: 18px;
-  overflow-x: hidden;
-
-  overflow-y: scroll;
-  height: 500px;
 }
 .flexingItemsJobs {
   display: flex;
@@ -167,12 +163,11 @@
     list-style-type: none;
   }
   .AllDataOfItems {
-    width: 100%;
+    width: 340px;
     margin-top: 18px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: none;
   }
   .flexingItemsJobs {
     display: flex;
@@ -219,7 +214,7 @@
     width: 360px;
   }
   .noJobs {
-    width: 360px;
+    width: 300px;
   }
   .loader-container {
     text-align: center;
