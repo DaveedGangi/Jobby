@@ -1,9 +1,11 @@
 import Header from '../HeaderPage'
 
+import './index.css'
+
 const NotFound = () => (
   <div>
     <Header />
-    <div>
+    <div className="NotFounds">
       <div>
         <img
           src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"

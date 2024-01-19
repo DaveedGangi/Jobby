@@ -1,14 +1,178 @@
 .flexingJobsSkills {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 77px;
 }
 .eachSkill {
   height: 100px;
   width: 100px;
   margin-right: 9px;
+  margin-top: 8px;
 }
 .ul {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+  background-color: black;
+  width: 100%;
+  background-size: cover;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bgJobItemDetail {
+  background-color: black;
+  color: #ffffff;
+  height: 100%;
+  background-size: cover;
+  padding-bottom: 33px;
+}
+.DetailsOfSingleJob {
+  margin: 33px;
+  background-color: black;
+}
+.ImageOfSingleJob {
+  height: 99px;
+}
+.SingleJobImageFlex {
+  display: flex;
+}
+.LocationSingleJob {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.employeSingle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+}
+.Stars {
+  color: yellow;
+}
+.DiscriptionFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Visit {
+  padding-top: 22px;
+}
+.Share {
+  color: blue;
+}
+.anchor {
+  color: blue;
+  text-decoration: none;
+  font-weight: 600;
+}
+.LifeAtFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.LifeAtCompany {
+  width: 800px;
+}
+
+@media (max-width: 767px) {
+  .flexingJobsSkills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 77px;
+  }
+  .eachSkill {
+    height: 100px;
+    width: 100px;
+    margin-right: 9px;
+    margin-top: 18px;
+    text-align: center;
+  }
+  .eachSkillPara {
+    margin-top: 4px;
+  }
+  .ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+  }
+  .bgJobItemDetail {
+    background-color: black;
+    color: #ffffff;
+    height: 100%;
+    background-size: cover;
+    padding-bottom: 33px;
+  }
+  .SimilarJobsHeadingSmallScreens {
+    padding-left: 22px;
+  }
+  .DetailsOfSingleJob {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+  }
+  .detailsOfSmallScreens {
+    background-color: #202020;
+    width: 88vw;
+    padding: 12px;
+    border-radius: 8px;
+    padding-bottom: 33px;
+    margin-top: 26px;
+  }
+  .ImageOfSingleJob {
+    height: 99px;
+    margin-top: 22px;
+    margin-right: 12px;
+  }
+  .SingleJobImageFlex {
+    display: flex;
+  }
+  .LocationSingleJob {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .employeSingle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+  }
+  .Stars {
+    color: yellow;
+  }
+  .DiscriptionFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .Visit {
+    padding-top: 22px;
+  }
+  .Share {
+    color: blue;
+  }
+  .anchor {
+    color: blue;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .LifeAtFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .LifeAtCompany {
+    width: 300px;
+    padding-right: 12px;
+  }
+  .lifeAtCompanySmallScreens {
+    width: 290px;
+  }
 }

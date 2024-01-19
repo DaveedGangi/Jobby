@@ -1,6 +1,12 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+
+import {IoLocationOutline} from 'react-icons/io5'
+import {BsBriefcaseFill} from 'react-icons/bs'
+// import {FaRegStar} from 'react-icons/fa'
+import {FaStar, FaShareSquare} from 'react-icons/fa'
+
 import Header from '../HeaderPage'
 
 import SimilarJobDetails from '../SimilarJobs'
@@ -90,40 +96,87 @@ class JobItemDetails extends Component {
     const {jobCard, skill, similarJobs} = this.state
 
     return (
-      <div>
-        <div>
-          <img src={jobCard.companyLogo} alt="job details company logo" />
-        </div>
-        <h1>{jobCard.title}</h1>
-        <p>{jobCard.rating}</p>
-        <p>{jobCard.location}</p>
-        <p>{jobCard.employType}</p>
-        <p>{jobCard.package}</p>
-        <hr />
-        <h1>Description</h1>
-        <p>{jobCard.description}</p>
-        <a href={jobCard.companyWebSite}>Visit</a>
-        <h1>Skills</h1>
-        <div className="flexingJobsSkills">
-          {skill.map(each => (
-            <div className="eachSkill" key={each.id}>
-              <img src={each.imageSkill} alt={each.name} />
-              <p>{each.name}</p>
+      <div className="DetailsOfSingleJob">
+        <div className="detailsOfSmallScreens">
+          <div className="SingleJobImageFlex">
+            <div>
+              <img
+                className="ImageOfSingleJob"
+                src={jobCard.companyLogo}
+                alt="job details company logo"
+              />
             </div>
-          ))}
-        </div>
-        <h1>Life at Company</h1>
-        <p>{jobCard.lifeAt}</p>
-        <div>
-          <img src={jobCard.imageLifeAt} alt="life at company" />
-        </div>
+            <div className="StarFlexSingle">
+              <h1>{jobCard.title}</h1>
+              <p>
+                <FaStar className="Stars" />
+                &nbsp;&nbsp;
+                {jobCard.rating}
+              </p>
+            </div>
+          </div>
+          <div className="LocationSingleJob">
+            <div className="employeSingle">
+              <p>
+                <IoLocationOutline />
+                &nbsp; &nbsp;
+                {jobCard.location}
+              </p>
+              <p>
+                <BsBriefcaseFill />
+                &nbsp; &nbsp;
+                {jobCard.employType}
+              </p>
+            </div>
+            <div>
+              <p>{jobCard.package}</p>
+            </div>
+          </div>
+          <hr />
+          <div className="DiscriptionFlex">
+            <h1>Description</h1>
+            <div className="Visit">
+              <a className="anchor" href={jobCard.companyWebSite}>
+                Visit
+              </a>
+              &nbsp;
+              <FaShareSquare className="Share" />
+              &nbsp;
+            </div>
+          </div>
+          <p>{jobCard.description}</p>
 
-        <h1>Similar Jobs</h1>
-        <ul className="ul">
-          {similarJobs.map(each => (
-            <SimilarJobDetails eachElement={each} key={each.id} />
-          ))}
-        </ul>
+          <h1>Skills</h1>
+          <div className="flexingJobsSkills">
+            {skill.map(each => (
+              <div className="eachSkill" key={each.id}>
+                <img src={each.imageSkill} alt={each.name} />
+                <p className="eachSkillPara">{each.name}</p>
+              </div>
+            ))}
+          </div>
+          <div className="LifeAtFlex">
+            <div className="LifeAtCompany">
+              <h1>Life at Company</h1>
+              <p>{jobCard.lifeAt}</p>
+            </div>
+            <div>
+              <img
+                className="lifeAtCompanySmallScreens"
+                src={jobCard.imageLifeAt}
+                alt="life at company"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1 className="SimilarJobsHeadingSmallScreens">Similar Jobs</h1>
+          <ul className="ul">
+            {similarJobs.map(each => (
+              <SimilarJobDetails eachElement={each} key={each.id} />
+            ))}
+          </ul>
+        </div>
       </div>
     )
   }
@@ -161,7 +214,7 @@ class JobItemDetails extends Component {
 
   render() {
     return (
-      <div>
+      <div className="bgJobItemDetail">
         <Header />
 
         {this.conditionCheckingForJobs()}

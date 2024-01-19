@@ -26,6 +26,7 @@
   margin-top: 19px;
   border-radius: 7px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .Input {
@@ -58,6 +59,7 @@
   .LoginButton {
     height: 33px;
     width: 300px;
+    cursor: pointer;
   }
   .Input {
     height: 33px;

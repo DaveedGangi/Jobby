@@ -1,0 +1,8 @@
+.NotFounds {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 33px;
+}

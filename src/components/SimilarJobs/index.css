@@ -1,4 +1,61 @@
 .li {
-  height: 300px;
-  width: 300px;
+  background-color: #202020;
+  flex-wrap: wrap;
+  width: 360px;
+  padding: 18px;
+  border-radius: 12px;
+}
+.SimilarJobs {
+  height: 77px;
+}
+.SimilarFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.SimilarTitle {
+  font-size: 26px;
+}
+.FlexLocationSimilar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+}
+.Star {
+  color: yellow;
+}
+
+@media (max-width: 767px) {
+  .li {
+    background-color: #202020;
+    flex-wrap: wrap;
+    width: 290px;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    padding-right: 22px;
+  }
+  .SimilarJobs {
+    height: 77px;
+    margin-right: 12px;
+    margin-top: 12px;
+  }
+  .SimilarFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .SimilarTitle {
+    font-size: 22px;
+  }
+  .FlexLocationSimilar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 250px;
+  }
+  .Star {
+    color: yellow;
+  }
 }

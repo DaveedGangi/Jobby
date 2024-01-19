@@ -142,7 +142,7 @@ class JobsDetails extends Component {
     return (
       <div className="CardOfUser">
         <div>
-          <img src={imageUser} alt="profile" />
+          <img className="imageOfUser" src={imageUser} alt="profile" />
         </div>
         <h1 className="UserName">{name}</h1>
         <p className="Description">{Description}</p>
@@ -233,7 +233,7 @@ class JobsDetails extends Component {
   }
 
   DataNotFound = () => (
-    <div>
+    <div className="DataNot">
       <div>
         <img
           src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png "
@@ -253,49 +253,11 @@ class JobsDetails extends Component {
 
     return (
       <div className="jobsALlBg">
-        <Header />
-
         <div className="flexingData">
-          <div>
-            {this.ProfileChecking()}
-            <div>
-              <h1>Type of Employment</h1>
-              <ul className="Ul">
-                {employmentTypesList.map(each => (
-                  <li key={each.employmentTypeId}>
-                    <input
-                      onChange={this.EmployLists}
-                      value={each.label}
-                      type="checkbox"
-                      id={each.employmentTypeId}
-                    />
-                    <label htmlFor={each.employmentTypeId}>{each.label}</label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <hr />
-            <div>
-              <h1>Salary Range</h1>
-              <ul className="Ul">
-                {salaryRangesList.map(each => (
-                  <li key={each.salaryRangeId}>
-                    <input
-                      id={each.salaryRangeId}
-                      value={each.label}
-                      type="radio"
-                      onChange={this.RadioChange}
-                    />
-                    <label htmlFor={each.salaryRangeId}> {each.label} </label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
           <div className="detailsOfAllJobs">
-            <div>
+            <div className="searchBar">
               <input
+                className="inputSearch"
                 onChange={this.changeInput}
                 type="search"
                 placeholder="Search"
@@ -303,6 +265,7 @@ class JobsDetails extends Component {
                 onKeyDown={this.searchInputDown}
               />
               <button
+                className="ButtonSearch"
                 onClick={this.buttonSearch}
                 type="button"
                 data-testid="searchButton"
@@ -356,7 +319,55 @@ class JobsDetails extends Component {
   }
 
   render() {
-    return <div>{this.coditionChecking()}</div>
+    return (
+      <div>
+        <Header />
+        <div className="flexingItemsJobs">
+          <div className="ProfileSide">
+            {this.ProfileChecking()}
+            <div>
+              <div>
+                <hr />
+                <h1 className="TypeOfEmploy">Type of Employment</h1>
+                <ul className="Ul">
+                  {employmentTypesList.map(each => (
+                    <li key={each.employmentTypeId}>
+                      <input
+                        onChange={this.EmployLists}
+                        value={each.label}
+                        type="checkbox"
+                        id={each.employmentTypeId}
+                      />
+                      <label htmlFor={each.employmentTypeId}>
+                        {each.label}
+                      </label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <hr />
+              <div>
+                <h1 className="SalaryRange">Salary Range</h1>
+                <ul className="Ul">
+                  {salaryRangesList.map(each => (
+                    <li key={each.salaryRangeId}>
+                      <input
+                        id={each.salaryRangeId}
+                        value={each.label}
+                        type="radio"
+                        onChange={this.RadioChange}
+                      />
+                      <label htmlFor={each.salaryRangeId}> {each.label} </label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="ChecksData">{this.coditionChecking()}</div>
+        </div>
+      </div>
+    )
   }
 }
 

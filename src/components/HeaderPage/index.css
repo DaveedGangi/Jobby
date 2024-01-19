@@ -39,3 +39,73 @@
 .HJ {
   text-decoration: none;
 }
+
+@media (min-width: 768px) {
+  .HomeAndJobsSmallScreens {
+    display: none;
+  }
+  .forSmallScreensLogout {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .HomeAndJobs {
+    display: none;
+  }
+  .ForLargeScreensLogout {
+    display: none;
+  }
+  .HomeAndJobsStyleSmallScreens {
+    list-style-type: none;
+    color: #ffffff;
+  }
+  .HomeAndJobsSmallScreens {
+    display: flex;
+    color: #ffffff;
+    width: 99px;
+    flex-direction: space-between;
+    margin-right: 8px;
+  }
+  .LogoutButton {
+    background-color: #6366f1;
+    border: 0px;
+    height: 24px;
+    width: 35px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 4px;
+    margin-right: 12px;
+    cursor: pointer;
+    margin-left: 13px;
+  }
+  .BgForHeader {
+    background-color: #272727;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-size: cover;
+  }
+  .HomeAndJobs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 110px;
+  }
+  .webSiteLogo {
+    height: 33px;
+    margin-left: 0px;
+  }
+  .HomeAndJobsStyle {
+    display: none;
+  }
+  .liWebSiteLogo {
+    list-style-type: none;
+    text-decoration: none;
+  }
+  .HJ {
+    text-decoration: none;
+  }
+}
