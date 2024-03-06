@@ -7,11 +7,18 @@
 .companyLogoJobFlex {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: flex-start;
   width: 360px;
+  @media screen and (min-width: 768px) {
+    width: 440px;
+  }
 }
 .CompanyLogo {
   height: 77px;
+  width: 75px;
+  @media screen and (min-width: 768px) {
+    margin-right: 49px;
+  }
 }
 .packageFlex {
   display: flex;
@@ -27,6 +34,9 @@
   flex-direction: row;
   justify-content: space-between;
   width: 200px;
+  @media screen and (min-width: 768px) {
+    width: 220px;
+  }
 }
 .Star {
   color: yellow;

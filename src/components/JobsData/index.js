@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+
 import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 
@@ -47,6 +48,29 @@ const salaryRangesList = [
   },
 ]
 
+const locationData = [
+  {
+    id: 1,
+    location: 'Hyderabad',
+  },
+  {
+    id: 2,
+    location: 'Bangalore',
+  },
+  {
+    id: 3,
+    location: 'Chennai',
+  },
+  {
+    id: 4,
+    location: 'Delhi',
+  },
+  {
+    id: 5,
+    location: 'Mumbai',
+  },
+]
+
 const stagesForConditionChecking = {
   initial: 'INITIAL',
   success: 'SUCCESS',
@@ -65,6 +89,7 @@ class JobsDetails extends Component {
     EmployList: [],
     stateDeclared: 'initial',
     CheckingProfileData: 'initial',
+    locationListsContains: [],
   }
 
   componentDidMount() {
@@ -220,14 +245,57 @@ class JobsDetails extends Component {
     }
   }
 
+  locationChange = event => {
+    const {locationListsContains} = this.state
+    const locationDetails = event.target.value
+    const locationGet = locationListsContains.filter(
+      each => each === locationDetails,
+    )
+    if (locationGet.length === 0) {
+      this.setState(
+        prevState => ({
+          locationListsContains: [
+            ...prevState.locationListsContains,
+            locationDetails,
+          ],
+        }),
+        this.jobsData,
+      )
+    } else {
+      const filterOnMultipleItems = locationListsContains.filter(
+        each => each !== locationDetails,
+      )
+      this.setState(
+        {locationListsContains: filterOnMultipleItems},
+        this.jobsData,
+      )
+    }
+  }
+
   renderALlData = () => {
-    const {totallJobs} = this.state
+    const {totallJobs, locationListsContains} = this.state
+    console.log(locationListsContains)
+
+    const detailsForLocation = totallJobs.filter(each =>
+      locationListsContains.includes(each.location),
+    )
+    console.log(detailsForLocation)
 
     return (
       <div className="AllDataOfItems">
-        {totallJobs.map(each => (
-          <JobCard each={each} key={each.id} />
-        ))}
+        {detailsForLocation.length === 0 ? (
+          <div>
+            {totallJobs.map(each => (
+              <JobCard each={each} key={each.id} />
+            ))}
+          </div>
+        ) : (
+          <div>
+            {detailsForLocation.map(each => (
+              <JobCard each={each} key={each.id} />
+            ))}
+          </div>
+        )}
       </div>
     )
   }
@@ -359,6 +427,23 @@ class JobsDetails extends Component {
                         onChange={this.RadioChange}
                       />
                       <label htmlFor={each.salaryRangeId}> {each.label} </label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <hr />
+              <div>
+                <h1 className="Location">Locations</h1>
+                <ul className="Ul">
+                  {locationData.map(each => (
+                    <li key={each.id}>
+                      <input
+                        id={each.id}
+                        value={each.location}
+                        type="checkbox"
+                        onChange={this.locationChange}
+                      />
+                      <label htmlFor={each.id}> {each.location} </label>
                     </li>
                   ))}
                 </ul>

@@ -150,7 +150,11 @@ class JobItemDetails extends Component {
           <div className="flexingJobsSkills">
             {skill.map(each => (
               <div className="eachSkill" key={each.id}>
-                <img src={each.imageSkill} alt={each.name} />
+                <img
+                  className="ImageOfEachSkill"
+                  src={each.imageSkill}
+                  alt={each.name}
+                />
                 <p className="eachSkillPara">{each.name}</p>
               </div>
             ))}

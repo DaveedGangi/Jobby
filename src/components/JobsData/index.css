@@ -72,18 +72,30 @@
   border: 1px solid whitesmoke;
   color: #ffffff;
   border-right-color: #121212;
+  padding-left: 8px;
+  outline: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .ButtonSearch {
   background-color: darkslategray;
   color: #ffffff;
   width: 44px;
+
   cursor: pointer;
   padding-top: 8px;
   padding-bottom: 8px;
   border-right-color: 1px solid whitesmoke;
+  border: 0px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .SalaryRange {
+  font-size: 18px;
+  padding-left: 43px;
+}
+.Location {
   font-size: 18px;
   padding-left: 43px;
 }
@@ -186,6 +198,7 @@
     border: 1px solid whitesmoke;
     color: #ffffff;
     border-right-color: #121212;
+    padding-left: 8px;
   }
 
   .ButtonSearch {
